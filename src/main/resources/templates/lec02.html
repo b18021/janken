@@ -7,8 +7,28 @@
 </head>
 
 <body>
+  <h1>Lec02 GET!</h1>
   <p th:if="${username}">
     Hi! [[${username}]]
+  </p>
+  <a href="/lec02?hand=1">ぐー</a>
+  <a href="/lec02?hand=2">ちょき</a>
+  <a href="/lec02?hand=3">ぱー</a>
+
+  <p th:if="${hand} == 1">
+    あなたの手 gu
+    相手の手 gu
+    結果 draw!
+  </p>
+  <p th:if="${hand}==2">
+    あなたの手 tyoki
+    相手の手 gu
+    結果 you lose!
+  </p>
+  <p th:if=" ${hand}==3">
+    あなたの手 pa
+    相手の手 gu
+    結果 you win!
   </p>
 </body>
 
