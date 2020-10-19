@@ -7,9 +7,19 @@
 </head>
 
 <body>
+  <h1>Lec02 GET!</h1>
   <p th:if="${username}">
     Hi! [[${username}]]
   </p>
+  <a href="/lec02?myhand=0">ぐー</a>
+  <a href="/lec02?myhand=1">ちょき</a>
+  <a href="/lec02?myhand=2">ぱー</a>
+
+  <div th:if="${result}">
+    <p>あなたの手 : [[${myhandString}]]</p>
+    <p>相手の手 : GU</p>
+    <p>結果 : [[${resultString}]]</p>
+  </div>
 </body>
 
 </html>
