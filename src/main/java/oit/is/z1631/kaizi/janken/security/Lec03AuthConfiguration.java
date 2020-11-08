@@ -21,9 +21,9 @@ public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
 
     // $ sshrun htpasswd -nbBC 10 user1 pAssw0rd
     auth.inMemoryAuthentication().withUser("user1")
-        .password("$2y$10$tTjYaHKVWePnR/XytimFO.SaxmwmbUvwJkgY/0NTNZjYbqnyBLSr2").roles("USER");//1
+        .password("$2y$10$tTjYaHKVWePnR/XytimFO.SaxmwmbUvwJkgY/0NTNZjYbqnyBLSr2").roles("USER");// 1
     auth.inMemoryAuthentication().withUser("user2")
-        .password("$2y$10$CoBya0jwf6ntXD5YLNh8BeZ4HogOZOLwgWRW7LIEs6DTzyA.YZAOO").roles("USER");//2
+        .password("$2y$10$CoBya0jwf6ntXD5YLNh8BeZ4HogOZOLwgWRW7LIEs6DTzyA.YZAOO").roles("USER");// 2
   }
 
   @Bean
@@ -48,6 +48,15 @@ public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
 
     // Spring Securityの機能を利用してログアウト．ログアウト時は http://localhost:8000/ に戻る
     http.logout().logoutSuccessUrl("/");
+
+    /**
+     * 以下2行はh2-consoleを利用するための設定なので，開発が完了したらコメントアウトすることが望ましい
+     * CSRFがONになっているとフォームが対応していないためアクセスできない
+     * HTTPヘッダのX-Frame-OptionsがDENYになるとiframeでlocalhostでのアプリが使えなくなるので，H2DBのWebクライアントのためだけにdisableにする必要がある
+     */
+    http.csrf().disable();
+    http.headers().frameOptions().disable();
+
   }
 
 }
