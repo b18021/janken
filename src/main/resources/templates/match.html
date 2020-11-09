@@ -7,11 +7,23 @@
 </head>
 
 <body>
-
+  <a href="/logout">ログアウト</a>
+  <h1>Match</h1>
   <div th:if="${loginuser} and ${cpu}">
-    <h1>[[${loginuser}]] V.S. [[${cpu}]]</h1>
+    <h2>[[${loginuser}]] V.S. [[${cpu}]]</h2>
+  </div>
+  <a href="/game?myhand=0">ぐー</a>
+  <a href="/game?myhand=1">ちょき</a>
+  <a href="/game?myhand=2">ぱー</a>
+
+  <div th:if="${result}">
+    <p>あなたの手 : [[${myhandString}]]</p>
+    <p>相手の手 : GU</p>
+    <p>結果 : [[${resultString}]]</p>
   </div>
 
+  <div><a href="/lec02">もどる</a>
+    <div>
 </body>
 
 </html>
