@@ -20,11 +20,12 @@ public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
     // $ sshrun htpasswd -nbBC 10 user1 pAssw0rd
-    // $ sshrun htpasswd -nbBC 10 ほんだ 3
-    auth.inMemoryAuthentication().withUser("user1")
-        .password("$2y$10$tTjYaHKVWePnR/XytimFO.SaxmwmbUvwJkgY/0NTNZjYbqnyBLSr2").roles("USER");// 1
-    auth.inMemoryAuthentication().withUser("user2")
-        .password("$2y$10$CoBya0jwf6ntXD5YLNh8BeZ4HogOZOLwgWRW7LIEs6DTzyA.YZAOO").roles("USER");// 2
+    // $ sshrun htpasswd -nbBC 10 CPU 1
+    auth.inMemoryAuthentication().withUser("CPU")
+        .password("$2y$10$dOAs/YkkGbgW5ns6BW9Ws.ZJRE0zhLSAEV/8bG8hYVLiyaVPF0Gd2").roles("USER");// 1
+    // auth.inMemoryAuthentication().withUser("user2")
+    // .password("$2y$10$CoBya0jwf6ntXD5YLNh8BeZ4HogOZOLwgWRW7LIEs6DTzyA.YZAOO").roles("USER");//
+    // 2
     auth.inMemoryAuthentication().withUser("ほんだ")
         .password("$2y$10$n/fuvbIgRSsfeC.ZJMO/ue8CSgoIBIsx1B.yXRrhzM.Mkhp8fZud2").roles("USER");// 3
   }
